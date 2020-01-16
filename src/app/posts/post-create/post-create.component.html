@@ -1,0 +1,63 @@
+<!-- <textarea #id rows="10"></textarea>
+<hr>
+<button (click)="onAddPost(id.value)">save post</button>
+
+<p>{{newPost}}</p>
+
+
+<hr>
+<hr>
+
+
+<textarea #id2 rows="10"></textarea>
+<hr>
+<button (click)="onAddPost2(id2)">save post</button>
+
+<p>{{newPost2}}</p>
+
+<hr>
+<hr>
+
+<textarea [(ngModel)]="enteredValue" rows="10"></textarea>
+<hr>
+<button (click)="onAddPost3()">save post</button>
+
+<p>{{enteredValue}}</p> -->
+
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      name="title"
+      ngModel
+      required
+      minlength="3"
+      #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a post title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+      matInput
+      name="content"
+      ngModel
+      rows="10"
+      required
+      #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post content</mat-error>
+    </mat-form-field>
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit">Save post</button>
+  </form>
+
+</mat-card>
+
+
+
+
+
+
+
